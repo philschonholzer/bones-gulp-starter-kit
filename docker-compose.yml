@@ -4,8 +4,11 @@ services:
     build: .
     volumes:
       - "./:/data"
-    depends_on:
+      - "/data/node_modules"
+    links:
       - wordpress
+    ports:
+      - "3000:3000"
 
   db:
     image: mysql:5.7
@@ -23,7 +26,7 @@ services:
       - db
     image: wordpress:latest
     volumes: 
-      - "./theme:/var/www/html/wp-content/themes/hostettler"
+      - "./build:/var/www/html/wp-content/themes/bones"
     links:
       - db
     ports:

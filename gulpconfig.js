@@ -19,7 +19,7 @@ module.exports = {
   , notify: false // In-line notifications (the blocks of text saying whether you are connected to the BrowserSync server or not)
   , open: true // Set to false if you don't like the browser window opening automatically
   , port: 3000 // Port number for the live version of the site; default: 3000
-  , proxy: 'localhost:8080' // We need to use a proxy instead of the built-in server because WordPress has to do some server-side rendering for the theme to work
+  , proxy: 'localhost:8000' // We need to use a proxy instead of the built-in server because WordPress has to do some server-side rendering for the theme to work
   , watchOptions: {
       debounceDelay: 2000 // This introduces a small delay when watching for file change events to avoid triggering too many reloads
     }
@@ -87,7 +87,7 @@ module.exports = {
   styles: {
     build: {
       src: src+'library/scss/**/*.scss'
-    , dest: build
+    , dest: build+'library/css/'
     }
   , compiler: 'libsass' // Choose a Sass compiler: 'libsass' or 'rubysass'
   , cssnano: {
@@ -116,7 +116,7 @@ module.exports = {
     , dest: build+'library/translation/'
     }
   , php: {
-      src: src+'**/*.php' // This simply copies PHP files over; both this and the previous task could be combined if you like
+      src: src+'**/*(*.php|*.css|*.ico)' // This simply copies PHP files over; both this and the previous task could be combined if you like
     , dest: build
     }
   },

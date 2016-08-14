@@ -1,8 +1,10 @@
 FROM alpine:3.3
 
-RUN apk add --update nodejs python make && npm i -g gulp  
+RUN apk add --update nodejs python build-base && npm i -g gulp
 
 WORKDIR /data
 
+VOLUME /data/node_modules
+
 # Define default command.
-CMD npm install
+CMD npm install; gulp
