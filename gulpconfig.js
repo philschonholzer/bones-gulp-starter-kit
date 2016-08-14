@@ -1,7 +1,7 @@
 // ==== CONFIGURATION ==== //
 
 // Project paths
-var project     = 'voidx'                 // The directory name for your theme; change this at the very least!
+var project     = 'Bones'                 // The directory name for your theme; change this at the very least!
   , src         = './src/'                // The raw material of your theme: custom scripts, SCSS source files, PHP files, images, etc.; do not delete this folder!
   , build       = './build/'              // A temporary directory containing a development version of your theme; delete it anytime
   , dist        = './dist/'+project+'/'   // The distribution package that you'll be uploading to your server; delete it anytime
@@ -72,9 +72,9 @@ module.exports = {
       , src+'js/page-loader.js'
       ]
     }
-  , dest: build+'js/' // Where the scripts end up in your theme
+  , dest: build+'library/js/' // Where the scripts end up in your theme
   , lint: {
-      src: [src+'js/**/*.js'] // Linting checks the quality of the code; we only lint custom scripts, not those under the various modules, so we're relying on the original authors to ship quality code
+      src: [src+'library/js/**/*.js'] // Linting checks the quality of the code; we only lint custom scripts, not those under the various modules, so we're relying on the original authors to ship quality code
     }
   , minify: {
       src: build+'js/**/*.js'
@@ -86,7 +86,7 @@ module.exports = {
 
   styles: {
     build: {
-      src: src+'scss/**/*.scss'
+      src: src+'library/scss/**/*.scss'
     , dest: build
     }
   , compiler: 'libsass' // Choose a Sass compiler: 'libsass' or 'rubysass'
@@ -97,12 +97,12 @@ module.exports = {
       }
     }
   , rubySass: { // Requires the Ruby implementation of Sass; run `gem install sass` if you use this; Compass is *not* included by default
-      loadPath: ['./src/scss', bower, modules] // Adds Bower and npm directories to the load path so you can @import directly
+      loadPath: ['./src/library/scss', bower, modules] // Adds Bower and npm directories to the load path so you can @import directly
     , precision: 6
     , sourcemap: true
   }
   , libsass: { // Requires the libsass implementation of Sass (included in this package)
-      includePaths: ['./src/scss', bower, modules] // Adds Bower and npm directories to the load path so you can @import directly
+      includePaths: ['./src/library/scss', bower, modules] // Adds Bower and npm directories to the load path so you can @import directly
     , precision: 6
     , onError: function(err) {
         return console.log(err);
@@ -112,8 +112,8 @@ module.exports = {
 
   theme: {
     lang: {
-      src: src+'languages/**/*' // Glob pattern matching any language files you'd like to copy over; we've broken this out in case you want to automate language-related functions
-    , dest: build+'languages/'
+      src: src+'library/translation/**/*' // Glob pattern matching any language files you'd like to copy over; we've broken this out in case you want to automate language-related functions
+    , dest: build+'library/translation/'
     }
   , php: {
       src: src+'**/*.php' // This simply copies PHP files over; both this and the previous task could be combined if you like
@@ -130,19 +130,19 @@ module.exports = {
     }
   , normalize: { // Copies `normalize.css` from `node_modules` to `src/scss` and renames it to allow for it to imported as a Sass file
       src: modules+'normalize.css/normalize.css'
-    , dest: src+'scss'
+    , dest: src+'library/scss'
     , rename: '_normalize.scss'
     }
   },
 
   watch: { // What to watch before triggering each specified task; if files matching the patterns below change it will trigger BrowserSync or Livereload
     src: {
-      styles:       src+'scss/**/*.scss'
-    , scripts:      src+'js/**/*.js' // You might also want to watch certain dependency trees but that's up to you
+      styles:       src+'library/scss/**/*.scss'
+    , scripts:      src+'library/js/**/*.js' // You might also want to watch certain dependency trees but that's up to you
     , images:       src+'**/*(*.png|*.jpg|*.jpeg|*.gif|*.svg)'
     , theme:        src+'**/*.php'
     , livereload:   build+'**/*'
     }
-  , watcher: 'livereload' // Modify this value to easily switch between BrowserSync ('browsersync') and Livereload ('livereload')
+  , watcher: 'browsersync' // Modify this value to easily switch between BrowserSync ('browsersync') and Livereload ('livereload')
   }
 }
