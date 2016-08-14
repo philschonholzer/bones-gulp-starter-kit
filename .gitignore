@@ -1,39 +1,65 @@
-## General
-.cvs
-.htaccess
-.svn
+# folders and files to be ignored by git
+
+############
+## Bones
+############
+
+build/
+node_modules/
+.sass-cache/
+.data/
+npm-debug.log
+
+src/library/css/
+
+
+############
+## IDEs
+############
+
+*.pydevproject
+.project
+.metadata
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+nbproject/
+
+############
+## OSes
+############
+
+[Tt]humbs.db
+[Dd]esktop.ini
+*.DS_store
+.DS_store?
+
+############
+## Misc
+############
+
+bin/
+tmp/
+*.tmp
 *.bak
 *.log
-*.swp
+*.[Cc]ache
+*.cpr
+*.orig
+*.php.in
+.idea/
+temp/
+._*
+.Trashes
 
-## Windows
-Desktop.ini
-Thumbs.db
+.svn
 
-## Mac
-.DS_Store
-
-## WordPress
-wp-config.php
-wp-content/uploads/
-wp-content/blogs.dir/
-wp-content/upgrade/
-wp-content/backup-db/
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
-wp-content/cache/*
-wp-content/cache/supercache/*
-wp-content/cache/
-wp-content/backups/
-sitemap.xml
-sitemap.xml.gz
-
-## Development
-.sass-cache
-bower_components
-node_modules
-vendor
-build
-dist
-assets/icons
-_normalize.scss
+*.codekit
+*.scssc
