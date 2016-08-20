@@ -1,4 +1,4 @@
-# A WORDPRESS/GULP STARTER KIT WITH DOCKER
+# A WordPress Starter Kit for Bones with Gulp and Docker
 
 Getting everything setup can be a real hassle. With this repo you have a complete development environment setup with one single command!
 
@@ -8,7 +8,8 @@ Getting everything setup can be a real hassle. With this repo you have a complet
 
 1. Install Docker
 1. Clone this repo
-1. `docker-compose run gulp` in the root of the cloned repo.
+1. `docker-compose up` in the root of the cloned repo.
+1. Open `localhost:3000` in your browser.
 
 
 
@@ -27,8 +28,6 @@ This starter kit uses `src`, `build`, and `dist` folders to organize theme devel
 
 Note: both the `build` and `dist` directories are disposable and can be regenerated from the contents of `src`. You aren't likely to want to edit files in this folders but you may want to open them up to diagnose issues with the build process itself.
 
+## MAINTAINER
 
-
-## TO DO
-
-Browsersync is not yet working... I don't understand this proxy stuff and how exactly I need to setup Docker for it to work.
+Made by Apptiva with ♥️
