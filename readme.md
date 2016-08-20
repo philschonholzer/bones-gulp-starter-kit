@@ -29,9 +29,9 @@ This starter kit uses `src`, `build`, and `dist` folders to organize theme devel
 Note: both the `build` and `dist` directories are disposable and can be regenerated from the contents of `src`. You aren't likely to want to edit files in this folders but you may want to open them up to diagnose issues with the build process itself.
 
 
-## Docker
+## DOCKER
 
-This starter kit is so easy and fast because of Docker.
+This starter kit is so easy and fast thanks to Docker.
 If you start this starter kit multiple times you need to rename the DB name (`WORDPRESS_DB_NAME`) in the `docker-compose.yml` otherwise you will have conflicts. The DB will be shared in case you don't rename it!  
 
 
